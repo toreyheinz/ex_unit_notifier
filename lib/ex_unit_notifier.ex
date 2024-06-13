@@ -74,5 +74,5 @@ defmodule ExUnitNotifier do
   defp notifier, do: Application.get_env(:ex_unit_notifier, :notifier, first_available_notifier())
 
   defp first_available_notifier,
-    do: @notifiers |> Enum.find(fn notifier -> notifier.available? end)
+    do: @notifiers |> Enum.find(fn notifier -> notifier.available?() end)
 end
